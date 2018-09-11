@@ -1,0 +1,23 @@
+.login-card {
+    margin-top: "10%";
+}
+
+.login-field {
+    margin-top: "8%";
+}
+
+.login-input {
+    width: "60%";
+    
+}
+
+.password-field {
+    margin-top: "2%";
+    margin-bottom: "5%";
+    width: "60%";
+}
+
+.submit-button {
+    margin-left: "30%";
+    margin-bottom: "8%";
+}

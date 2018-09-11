@@ -1,0 +1,21 @@
+.header-logo {
+  height: 130px;
+  background-color: rgb(6,17,58);
+  margin-bottom: 0;
+  margin-top: -30px;
+}
+   
+.header {
+  background-color: rgb(6,17,58);
+  height: 180px;
+  padding: 20px;
+  color: white;
+}
+
+.login-info {
+  font-size: 0.7em;
+}
+
+.logout-cursor {
+  cursor: pointer;
+}
