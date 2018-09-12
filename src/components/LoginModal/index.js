@@ -1,7 +1,7 @@
 import {connect} from "react-redux";
 import LoginModalView from "./LoginModalView";
 
-import fetchLoginState from "../../actions/userManagement/fetchLoginState";
+import loginSuccess from "../../actions/userManagement/loginSuccess";
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        fetchLoginState: () => {dispatch(fetchLoginState())}
+        loginSuccess: (username) => {dispatch(loginSuccess(username))}
     };
 };
 

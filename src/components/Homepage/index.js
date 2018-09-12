@@ -1,7 +1,6 @@
 import {connect} from "react-redux";
 import HomepageView from "./HomepageView";
 
-import fetchLoginState from "../../actions/userManagement/fetchLoginState";
 
 
 const mapStateToProps = (state, ownProps) => {
@@ -12,7 +11,6 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        fetchLoginState: () => {dispatch(fetchLoginState())}
     };
 };
 

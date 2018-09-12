@@ -9,6 +9,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import {Redirect} from "react-router";
+import endpoint from "../../const/endpoint";
 
 export default class SignupCard extends React.Component {
   constructor(props){
@@ -26,7 +27,7 @@ export default class SignupCard extends React.Component {
 
 
   componentDidMount(){
-    axios.get("/teams").then(resp => {
+    axios.get(endpoint + "/teams").then(resp => {
       this.setState({teams: [...resp.data]});
     })
   }

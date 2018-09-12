@@ -1,7 +1,6 @@
 import {connect} from "react-redux";
 import HeaderView from "./HeaderView";
 
-import fetchLoginState from "../../actions/userManagement/fetchLoginState";
 import logout from "../../actions/userManagement/logout";
 
 const mapStateToProps = (state, ownProps) => {
@@ -14,9 +13,6 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    fetchLoginState: () => {
-      dispatch(fetchLoginState());
-    },
     logout: () => {
       dispatch(logout());
     }

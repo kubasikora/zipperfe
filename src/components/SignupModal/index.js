@@ -1,7 +1,6 @@
 import {connect} from "react-redux";
 import SignupModalView from "./SignupModalView";
 
-import fetchLoginState from "../../actions/userManagement/fetchLoginState";
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -11,7 +10,6 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        fetchLoginState: () => {dispatch(fetchLoginState())}
     };
 };
 

@@ -1,10 +1,8 @@
 import {
-  FETCH_LOGIN_STATE_START,
-  FETCH_LOGIN_STATE_ACK,
-  FETCH_LOGIN_STATE_ERROR,
   LOGOUT_START,
   LOGOUT_ACK,
-  LOGOUT_ERROR
+  LOGOUT_ERROR,
+  LOGIN_SUCCESS
 } from "../const/actionTypes";
 
 const initialState = {
@@ -15,25 +13,12 @@ const initialState = {
 
 const userManagement = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_LOGIN_STATE_START:
+    case LOGIN_SUCCESS:
       return {
         ...state,
-        loading: true
-      };
-
-    case FETCH_LOGIN_STATE_ACK:
-      return {
-        ...state,
-        loading: false,
-        isLogged: action.payload.isAuthenticated,
-        login: action.payload.login
-      };
-
-    case FETCH_LOGIN_STATE_ERROR:
-      console.log(action.payload);
-      return {
-        ...state
-      };
+        isLogged: true,
+        login: action.payload
+      }
 
     case LOGOUT_START:
       return {

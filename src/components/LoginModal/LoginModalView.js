@@ -5,6 +5,7 @@ import Grid from "@material-ui/core/Grid";
 
 import LoginCard from "./LoginCard";
 import "./LoginModal.css";
+import endpoint from "../../const/endpoint";
 
 export default class LoginModalView extends React.Component {
   constructor(props) {
@@ -20,24 +21,22 @@ export default class LoginModalView extends React.Component {
     this.signupHandler = this.signupHandler.bind(this);
   }
 
-  componentDidMount() {
-    this.props.fetchLoginState();
-  }
-
-  componentWillUnmount() {
-    this.props.fetchLoginState();
-  }
-
   loginHandler() {
-    axios
-      .post("/login", {
+    axios.post(endpoint + "/login", {
         username: document.getElementById("username").value,
         password: document.getElementById("password").value
       })
       .then(resp => {
-        this.setState({
+        console.log(resp);
+        if(!!resp && !!resp.data && !!resp.data.token) {this.setState({
           loading: false,
           loggedIn: true
+        });
+        this.props.loginSuccess(resp.data.user.name);
+      }
+        else this.setState({
+          loading: false,
+          error: true
         });
       })
       .catch(err => {

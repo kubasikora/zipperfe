@@ -6,10 +6,11 @@ import NavigationBar from "../NavigationBar";
 
 import Grid from "@material-ui/core/Grid";
 import "./Homepage.css";
+import Cookie from "js-cookie";
 
 export default class HomepageView extends React.Component {
   componentDidMount() {
-    
+    //if(!Cookie.get("authToken")) document.location = "/";
   }
 
   render() {
