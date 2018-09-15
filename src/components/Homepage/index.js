@@ -1,17 +1,14 @@
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 import HomepageView from "./HomepageView";
-
-
 
 const mapStateToProps = (state, ownProps) => {
   return {
-      loggedIn: state.userManagement.isLogged
+    loggedIn: state.userManagement.isLogged
   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-    return {
-    };
+  return {};
 };
 
 export default connect(

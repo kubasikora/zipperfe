@@ -9,7 +9,8 @@ import {
 
 const initialState = {
   error: false,
-  loading: false,
+  loadingAll: false,
+  loadingAvailable: false,
   availableFixtures: [],
   allFixtures: []
 };
@@ -19,40 +20,40 @@ const fixtures = (state = initialState, action) => {
     case FETCH_AVAILABLE_FIXTURES_START:
       return {
         ...state,
-        loading: true
+        loadingAvailable: true
       };
 
     case FETCH_AVAILABLE_FIXTURES_ACK:
       return {
         ...state,
-        loading: false,
+        loadingAvailable: false,
         availableFixtures: action.payload
       };
 
     case FETCH_AVAILABLE_FIXTURES_ACK:
       return {
         ...state,
-        loading: false,
+        loadingAvailable: false,
         error: true
       };
 
     case FETCH_ALL_FIXTURES_START:
       return {
         ...state,
-        loading: true
+        loadingAll: true
       };
 
     case FETCH_ALL_FIXTURES_ACK:
       return {
         ...state,
-        loading: false,
+        loadingAll: false,
         allFixtures: action.payload
       };
 
     case FETCH_ALL_FIXTURES_ACK:
       return {
         ...state,
-        loading: false,
+        loadingAll: false,
         error: true
       };
 

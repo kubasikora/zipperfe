@@ -7,7 +7,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
       fixtures: state.fixtures.availableFixtures,
       bets: state.bets.userBets,
-      loading: state.bets.loading || state.fixtures.loading
+      loading: state.bets.loading || state.fixtures.loadingAvailable
   };
 };
 

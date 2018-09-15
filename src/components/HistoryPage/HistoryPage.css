@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+.card-title {
+    margin-bottom: 2%;
+    color: white;
+    font-family: 'Roboto';  
+    font-size: 24px;   
+}
+
+.gradient-background-history {
+    background-color: rgb(6,17,58); /* For browsers that do not support gradients */
+    background-image: linear-gradient(to bottom right, rgb(6,17,58), rgb(13,52,255)); /* Standard syntax (must be last) */
+}
+
+.history-card {
+    width: 75%;
+    margin: auto;
+}
+

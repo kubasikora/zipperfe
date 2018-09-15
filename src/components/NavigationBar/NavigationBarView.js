@@ -8,6 +8,7 @@ import Tab from "@material-ui/core/Tab";
 import TabContainer from "./TabContainer";
 import BettingPage from "../BettingPage";
 import ScoretablePage from "../ScoretablePage";
+import HistoryPage from "../HistoryPage";
 
 export default class NavigationBarView extends React.Component {
   constructor(props) {
@@ -36,7 +37,7 @@ export default class NavigationBarView extends React.Component {
         </AppBar>
         {value === 0 && <TabContainer><BettingPage /></TabContainer>}
         {value === 1 && <TabContainer><ScoretablePage /></TabContainer>}
-        {value === 2 && <TabContainer>Historia</TabContainer>}
+        {value === 2 && <TabContainer><HistoryPage /></TabContainer>}
       </div>
     );
   }
