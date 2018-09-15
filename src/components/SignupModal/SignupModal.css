@@ -1,0 +1,13 @@
+
+.gradient-background-signup {
+    background-color: rgb(6,17,58); /* For browsers that do not support gradients */
+    background-image: linear-gradient(to bottom right, rgb(6,17,58), rgb(13,52,255)); /* Standard syntax (must be last) */
+    height: 100%;
+    margin-bottom: 5%;
+}
+
+.signup-inner-card {
+    width: 60%;
+    height: 90%; 
+    margin: 5% auto 1% auto; 
+}

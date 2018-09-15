@@ -16,8 +16,9 @@ const LoginCard = ({loading, loginHandler, signupHandler}) => {
   })
 
   return (
-    <Card raised style={{marginTop: "8%"}}>
-      <h2 style={{marginTop: "8%"}}> Zaloguj się </h2>
+    <Card raised style={{marginTop: "8%"}} className="gradient-background-login">
+      <Card className="login-inner-card">
+        <h2 style={{marginTop: "8%"}}> Zaloguj się </h2>
       <div>
         <TextField
           id="username"
@@ -27,7 +28,7 @@ const LoginCard = ({loading, loginHandler, signupHandler}) => {
           style={{width: "50%"}}
         />
       </div>
-      <div style={{marginTop: "2%", marginBottom: "5%"}}>
+      <div style={{marginTop: "2%", marginBottom: "8%"}}>
         <TextField
           id="password"
           label="Hasło"
@@ -36,31 +37,27 @@ const LoginCard = ({loading, loginHandler, signupHandler}) => {
           style={{width: "50%"}}
         />
       </div>
-      <Grid container spacing={0}>
-        <Hidden smDown>
-          <Grid item sm={2} />
-        </Hidden>
-        <Grid item xs={12} md={4}>
-          <Button
-            variant="contained"
-            color="default"
-            onClick={() => signupHandler()}
-            style={{marginLeft: "0%", marginBottom: "5%"}}
-          >
-            Zarejestruj
-          </Button>
-        </Grid>
-        <Grid item xs={12} md={4}>
+      <Grid item xs={12}>
           <Button
             variant="contained"
             color="primary"
             onClick={() => loginHandler()}
-            style={{marginLeft: "12%", marginBottom: "30%"}}
+            style={{width: "50%"}}
           >
             Zaloguj
           </Button>
         </Grid>
-      </Grid>
+        <Grid item xs={12}>
+          <Button
+            variant="contained"
+            color="default"
+            onClick={() => signupHandler()}
+            style={{marginTop: "2%", width: "50%"}}
+          >
+            Zarejestruj
+          </Button>
+        </Grid>
+      </Card>
     </Card>
   );
 };

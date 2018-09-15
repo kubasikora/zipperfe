@@ -6,10 +6,6 @@ import Tooltip from "@material-ui/core/Tooltip";
 import Cookie from "js-cookie";
 
 class HeaderView extends React.Component {
-  componentDidMount() {
-    console.log(document.cookie);
-  }
-
   render() {
     return (
       <header>
@@ -18,7 +14,7 @@ class HeaderView extends React.Component {
           <Grid item xs={2}>
             <Tooltip title="Wyloguj" enterDelay={500} leaveDelay={200}>
               <h4 className="login-info logout-cursor" onClick={() => this.props.logout()}>
-                {this.props.isLogged ? `Zalogowany jako ${Cookie.get("username")}` : ""}
+                {Cookie.get("authToken") ? `Zalogowany jako ${Cookie.get("username")}` : ""}
               </h4>
             </Tooltip>
           </Grid>

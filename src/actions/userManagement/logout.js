@@ -3,6 +3,7 @@ import logoutStart from './logoutStart'
 import logoutAck from './logoutAck'
 import logoutError from './logoutError'
 import endpoint from "../../const/endpoint";
+import Cookies from "js-cookie";
 
 const logout = () => {
 	return dispatch => {

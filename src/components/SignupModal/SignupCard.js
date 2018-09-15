@@ -10,6 +10,8 @@ import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import {Redirect} from "react-router";
 import endpoint from "../../const/endpoint";
+import Cookies from "js-cookie";
+import "./SignupModal.css";
 
 export default class SignupCard extends React.Component {
   constructor(props){
@@ -27,7 +29,9 @@ export default class SignupCard extends React.Component {
 
 
   componentDidMount(){
-    axios.get(endpoint + "/teams").then(resp => {
+    axios.get(endpoint + "/teams", {
+      Authorization: `Bearer ${Cookies.get("authToken")}`
+    }).then(resp => {
       this.setState({teams: [...resp.data]});
     })
   }
@@ -49,7 +53,8 @@ export default class SignupCard extends React.Component {
   render() {
     if(this.state.isRegistered) return <Redirect to="/" />
     return (
-      <Card raised style={{marginTop: "8%", marginBottom: "8%"}}>
+      <Card raised style={{marginTop: "5%"}} className="gradient-background-signup">
+        <Card className="signup-inner-card">
         <Grid container spacing={8}>
           <Grid item xs={12}>
             <h2 style={{marginTop: "8%"}}> Zarejestruj się </h2>
@@ -99,7 +104,7 @@ export default class SignupCard extends React.Component {
             </div>
           </Grid>
           <Grid item xs={12}>
-          <FormControl style={{marginTop: "2%", width: "60%", marginBottom: "5%"}} >
+          <FormControl style={{marginTop: "2%", width: "60%", marginBottom: "10%"}} >
           <InputLabel htmlFor="ucl">Zwycięzca LM</InputLabel>
           <Select
             value={this.state.ucl}
@@ -118,27 +123,28 @@ export default class SignupCard extends React.Component {
           </Select>
         </FormControl>
           </Grid>
-          <Grid item xs={12} md={4}>
-          <Button
-              variant="contained"
-              color="default"
-              onClick={() => this.setState({isRegistered: true})}
-              style={{marginTop: "10%", marginLeft: "55%", marginBottom: "10%"}}
-            >
-              Cofnij
-            </Button>
-          </Grid>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12}>
             <Button
               variant="contained"
               color="primary"
               onClick={() => this.register()}
-              style={{marginTop: "7%", marginLeft: "55%", marginBottom: "10%"}}
+              style={{width: "60%"}}
             >
               Zarejestruj
             </Button>
           </Grid>
+          <Grid item xs={12}>
+          <Button
+              variant="contained"
+              color="default"
+              onClick={() => this.setState({isRegistered: true})}
+              style={{width: "60%"}}
+            >
+              Cofnij
+            </Button>
+          </Grid>
         </Grid>
+      </Card>
       </Card>
     );
   }

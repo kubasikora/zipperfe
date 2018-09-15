@@ -1,3 +1,3 @@
 const endpoint = "https://zipappbe-zipper.wedeploy.io";
-
-export default endpoint;
+//const endpoint = "http://localhost:80"
+export default endpoint;    

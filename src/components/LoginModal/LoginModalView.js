@@ -1,11 +1,12 @@
 import React from "react";
 import axios from "axios";
-import {Redirect} from "react-router";
+import { Redirect } from "react-router";
 import Grid from "@material-ui/core/Grid";
 
 import LoginCard from "./LoginCard";
 import "./LoginModal.css";
 import endpoint from "../../const/endpoint";
+import Cookies from "js-cookie";
 
 export default class LoginModalView extends React.Component {
   constructor(props) {
@@ -22,22 +23,29 @@ export default class LoginModalView extends React.Component {
   }
 
   loginHandler() {
-    axios.post(endpoint + "/login", {
+    axios
+      .post(endpoint + "/login", {
+        credentials: "include",
         username: document.getElementById("username").value,
         password: document.getElementById("password").value
       })
       .then(resp => {
         console.log(resp);
-        if(!!resp && !!resp.data && !!resp.data.token) {this.setState({
-          loading: false,
-          loggedIn: true
-        });
-        this.props.loginSuccess(resp.data.user.name);
-      }
-        else this.setState({
-          loading: false,
-          error: true
-        });
+        if (!!resp && !!resp.data && !!resp.data.token) {
+          this.setState({
+            loading: false,
+            loggedIn: true
+          });
+          Cookies.set("authToken", resp.data.token);
+          Cookies.set("username", resp.data.user.name);
+          Cookies.set("userID", resp.data.user.userID);
+          this.props.loginSuccess(resp.data.user.name);
+          document.location = "/home";
+        } else
+          this.setState({
+            loading: false,
+            error: true
+          });
       })
       .catch(err => {
         this.setState({
@@ -48,11 +56,14 @@ export default class LoginModalView extends React.Component {
   }
 
   signupHandler() {
-    this.setState({signUp: true});
+    this.setState({ signUp: true });
+  }
+
+  componentDidMount() {
+    if (Cookies.get("authToken")) document.location = "/home";
   }
 
   render() {
-    if (this.state.loggedIn || this.props.loggedIn) return <Redirect to="/home" />;
     if (this.state.signUp) return <Redirect to="/signup" />;
     return (
       <div>

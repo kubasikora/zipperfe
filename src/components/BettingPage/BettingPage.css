@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+.gradient-background-bets {
+    background-color: rgb(6,17,58); /* For browsers that do not support gradients */
+    background-image: linear-gradient(to bottom right, rgb(6,17,58), rgb(13,52,255)); /* Standard syntax (must be last) */
+}
+
+.betting-card {
+    width: 75%;
+    margin: auto;
+}
+
+.card-title {
+    margin-bottom: 2%;
+    color: white;
+    font-family: 'Roboto';  
+    font-size: 24px;   
+}
+
+circle {
+    stroke: #FF14FE !important;
+}
