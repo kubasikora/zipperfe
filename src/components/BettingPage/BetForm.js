@@ -5,6 +5,8 @@ import Grid from "@material-ui/core/Grid";
 import axios from "axios";
 import endpoint from "../../const/endpoint";
 import Cookies from "js-cookie";
+import {connect } from "react-redux";
+import postBet from "../../actions/bets/postBet";
 
 class BetForm extends React.Component {
 constructor(props){
@@ -59,17 +61,7 @@ handleChange = name => event => {
         <Grid item xs={12} md={10}/>
         <Grid item xs={12} md={2} >
         <Button variant="contained" color="primary" style={{marginTop: "10%"}}onClick={() => {
-            axios({method: "POST", url: `${endpoint}/api/addBet`, headers:   
-                {
-                  Authorization: `Bearer ${Cookies.get("authToken")}`
-                },
-                data: {
-                userID: Cookies.get("userID"),
-                fixture: this.state.fixture,
-                result: `${this.state.homeGoals}:${this.state.awayGoals}`
-                }
-            }
-              ).then(err => alert("Dodano zakład"))
+            this.props.postBet(this.state.fixture, this.state.homeGoals, this.state.awayGoals);
         }}>
             Obstaw
         </Button> 
@@ -79,4 +71,14 @@ handleChange = name => event => {
   }
 }
 
-export default BetForm;
+const mapStateToProps = (state, ownProps) => {
+  return {}
+}
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    postBet: (fixture, home, away) => {dispatch(postBet(fixture, home, away))}
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(BetForm);
