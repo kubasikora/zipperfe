@@ -30,7 +30,6 @@ export default class LoginModalView extends React.Component {
         password: document.getElementById("password").value
       })
       .then(resp => {
-        console.log(resp);
         if (!!resp && !!resp.data && !!resp.data.token) {
           this.setState({
             loading: false,
@@ -46,6 +45,7 @@ export default class LoginModalView extends React.Component {
             loading: false,
             error: true
           });
+          this.props.loginFailure();
       })
       .catch(err => {
         this.setState({

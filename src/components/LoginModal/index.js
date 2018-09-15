@@ -2,6 +2,7 @@ import {connect} from "react-redux";
 import LoginModalView from "./LoginModalView";
 
 import loginSuccess from "../../actions/userManagement/loginSuccess";
+import loginFailure from "../../actions/userManagement/loginFailure";
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -11,7 +12,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        loginSuccess: (username) => {dispatch(loginSuccess(username))}
+        loginSuccess: (username) => {dispatch(loginSuccess(username))},
+        loginFailure: () => {dispatch(loginFailure())}
     };
 };
 

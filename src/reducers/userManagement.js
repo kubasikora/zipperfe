@@ -8,7 +8,8 @@ import {
 const initialState = {
   loading: false,
   isLogged: false,
-  login: undefined
+  login: undefined,
+  error: false
 };
 
 const userManagement = (state = initialState, action) => {
@@ -37,7 +38,8 @@ const userManagement = (state = initialState, action) => {
      case LOGOUT_ERROR:
       console.log(action.payload);
       return {
-        ...state
+        ...state,
+        error: true
       };
 
     default:

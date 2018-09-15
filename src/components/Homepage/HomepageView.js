@@ -12,15 +12,8 @@ import endpoint from "../../const/endpoint";
 export default class HomepageView extends React.Component {
   componentDidMount() {
     if (!Cookies.get("authToken")) document.location = "/";
-    axios
-      .get(endpoint + "/api/teams", {
-        headers: {
-          Authorization: `Bearer ${Cookies.get("authToken")}`
-        }
-      })
-      .then(reps => console.log(reps));
   }
-
+  
   render() {
     return (
       <div>
