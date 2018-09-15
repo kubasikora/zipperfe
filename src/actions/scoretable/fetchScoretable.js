@@ -8,7 +8,7 @@ import Cookies from "js-cookie";
 const logout = () => {
 	return dispatch => {
 		dispatch(fetchScoretableStart());
-		axios.get(endpoint + "api/userTable", {
+		axios.get(endpoint + "/api/userTable", {
             headers: {
               Authorization: `Bearer ${Cookies.get("authToken")}`
             }

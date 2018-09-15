@@ -23,8 +23,12 @@ class ScoretablePageView extends React.Component {
     };
   }
 
-  render() {
+  componentDidMount() {
+      this.props.fetchScoretable();
+  }
 
+
+  render() {
     let rows = [{
         id: 1,
         login: "Jakub Sikora",
