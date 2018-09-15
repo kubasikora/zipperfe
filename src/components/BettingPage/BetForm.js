@@ -56,8 +56,8 @@ handleChange = name => event => {
           style={{marginTop: "5px", width: "15%", marginLeft: "8%"}}
         />
         </Grid>
-        <Grid item xs={10} />
-        <Grid item xs={2} >
+        <Grid item xs={12} md={10}/>
+        <Grid item xs={12} md={2} >
         <Button variant="contained" color="primary" style={{marginTop: "10%"}}onClick={() => {
             axios({method: "POST", url: `${endpoint}/api/addBet`, headers:   
                 {

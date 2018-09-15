@@ -26,6 +26,7 @@ class ScoretablePageView extends React.Component {
     return (
       <Card className="betting-card gradient-background-scoretable">
         <CardContent>
+        <p className="card-title">Tabela wyników</p>
             {this.props.loading ? (
               <Loading />
             ) : (
