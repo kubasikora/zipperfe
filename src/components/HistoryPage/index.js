@@ -7,7 +7,7 @@ import fetchBets from "../../actions/bets/fetchBets";
 const mapStateToProps = (state, ownProps) => {
   return {
     loading: state.fixtures.loadingAll || state.bets.loading,
-    fixtures: state.fixtures.allFixtures,
+    fixtures: state.fixtures.allFixtures.filter(fixture => fixture.final_score !== null),
     bets: state.bets.userBets
   };
 };

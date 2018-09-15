@@ -47,7 +47,7 @@ const fixtures = (state = initialState, action) => {
       return {
         ...state,
         loadingAll: false,
-        allFixtures: action.payload
+        allFixtures: action.payload.sort((fixture1, fixture2) => fixture1.date < fixture2.date)
       };
 
     case FETCH_ALL_FIXTURES_ACK:
