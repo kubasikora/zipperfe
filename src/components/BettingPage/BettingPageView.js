@@ -24,34 +24,11 @@ class BettingPageView extends React.Component {
   constructor(props) {
     super(props);
     this.changeMsToDate = this.changeMsToDate.bind(this);
-    this.state = {
-      fixtures: [],
-      bets: [],
-      loading: true
-    };
   }
 
   componentDidMount() {
-    axios
-      .get(endpoint + "/api/fixtures/all", {
-        headers: { Authorization: `Bearer ${Cookies.get("authToken")}` }
-      })
-      .then(resp => {
-        this.setState({ fixtures: resp.data.reverse() });
-
-        axios
-          .get(endpoint + "/api/betHistory?userID=" + Cookies.get("userID"), {
-            headers: {
-              Authorization: `Bearer ${Cookies.get("authToken")}`
-            }
-          })
-          .then(resp => {
-            this.setState({
-              bets: Array.isArray(resp.data) ? resp.data : [resp.data],
-              loading: false
-            });
-          });
-      });
+     this.props.fetchAvailableFixtures();
+     this.props.fetchBets(Cookies.get("userID"))
   }
 
   changeMsToDate(ms) {
@@ -66,9 +43,9 @@ class BettingPageView extends React.Component {
       <Card className="betting-card gradient-background-bets">
         <CardContent>
           <p className="card-title">Dostępne mecze</p>
-          {this.state.loading ? <CircularProgress size={90}/> :
-          this.state.fixtures.map(el => {
-            let bet = this.state.bets.find(bet => bet.fixture === el.fixtureID);
+          {this.props.loading ? <CircularProgress size={90}/> :
+          this.props.fixtures.map(el => {
+            let bet = this.props.bets.find(bet => bet.fixture === el.fixtureID);
             let home, away;
             if (bet) {
               home = bet.bet.split(":")[0];
