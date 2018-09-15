@@ -17,6 +17,7 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import BetForm from "./BetForm";
 import { withStyles } from '@material-ui/core/styles';
+import Loading from "../Loading";
 
 import "./BettingPage.css"
 
@@ -36,14 +37,12 @@ class BettingPageView extends React.Component {
     return `${date.getDate()}.${date.getMonth()}.${date.getFullYear()}  ${date.getHours()}:${date.getMinutes()}`;
   }
 
-
-
   render() {
     return (
       <Card className="betting-card gradient-background-bets">
         <CardContent>
           <p className="card-title">Dostępne mecze</p>
-          {this.props.loading ? <CircularProgress size={90}/> :
+          {this.props.loading ? <Loading /> :
           this.props.fixtures.map(el => {
             let bet = this.props.bets.find(bet => bet.fixture === el.fixtureID);
             let home, away;
