@@ -20,7 +20,7 @@ const ResultsTable = ({ scoretable }) => {
           {scoretable.map(row => {
             return (
               <TableRow key={row.id}>
-                <TableCell component="th" scope="row">
+                <TableCell component="th" scope="row" >
                   {row.login}
                 </TableCell>
                 <TableCell numeric>{row.pts}</TableCell>

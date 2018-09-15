@@ -8,7 +8,7 @@ const calculateColourFromBet = (betHome, betAway, resultHome, resultAway) => {
 };
 
 const setResult = (home, away) => {
-  if (home == away)
+  if (home === away)
     return {
       result: "draw"
     };

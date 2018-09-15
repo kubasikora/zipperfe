@@ -1,7 +1,4 @@
 import React from "react";
-import axios from "axios";
-import {Redirect} from "react-router";
-import Grid from "@material-ui/core/Grid";
 import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
@@ -23,7 +20,6 @@ export default class NavigationBarView extends React.Component {
   };
 
   render() {
-    const {classes} = this.props;
     const {value} = this.state;
 
     return (

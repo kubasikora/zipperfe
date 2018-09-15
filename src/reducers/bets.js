@@ -25,7 +25,7 @@ import {
           userBets: action.payload
         };
   
-      case FETCH_BETS_ACK:
+      case FETCH_BETS_ERROR:
         return {
           ...state,
           loading: false,

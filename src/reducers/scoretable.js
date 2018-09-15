@@ -25,7 +25,7 @@ const scoretable = (state = initialState, action) => {
         results: action.payload.sort((el1, el2) => el1.pts < el2.pts)
       };
 
-    case FETCH_SCORETABLE_ACK:
+    case FETCH_SCORETABLE_ERROR:
       return {
         ...state,
         loading: false,

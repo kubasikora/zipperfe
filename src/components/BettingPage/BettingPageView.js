@@ -1,22 +1,13 @@
 import React from "react";
-import Grid from "@material-ui/core/Grid";
-import Hidden from "@material-ui/core/Hidden";
-import Tooltip from "@material-ui/core/Tooltip";
 import Cookies from "js-cookie";
-import axios from "axios";
-import endpoint from "../../const/endpoint";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
-import CircularProgress from "@material-ui/core/CircularProgress";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
-import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import BetForm from "./BetForm";
-import { withStyles } from "@material-ui/core/styles";
 import changeMsToDate from "../../functions/changeMsToDate";
 import Loading from "../Loading";
 

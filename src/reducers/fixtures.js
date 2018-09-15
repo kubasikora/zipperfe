@@ -30,7 +30,7 @@ const fixtures = (state = initialState, action) => {
         availableFixtures: action.payload
       };
 
-    case FETCH_AVAILABLE_FIXTURES_ACK:
+    case FETCH_AVAILABLE_FIXTURES_ERROR:
       return {
         ...state,
         loadingAvailable: false,
@@ -50,7 +50,7 @@ const fixtures = (state = initialState, action) => {
         allFixtures: action.payload.sort((fixture1, fixture2) => fixture1.date < fixture2.date)
       };
 
-    case FETCH_ALL_FIXTURES_ACK:
+    case FETCH_ALL_FIXTURES_ERROR:
       return {
         ...state,
         loadingAll: false,

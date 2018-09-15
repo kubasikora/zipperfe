@@ -1,7 +1,6 @@
 import React from "react";
 import "./Header.css";
 import Grid from "@material-ui/core/Grid";
-import Hidden from "@material-ui/core/Hidden";
 import Tooltip from "@material-ui/core/Tooltip";
 import Cookie from "js-cookie";
 
