@@ -10,6 +10,7 @@ import Typography from "@material-ui/core/Typography";
 import BetForm from "./BetForm";
 import changeMsToDate from "../../functions/changeMsToDate";
 import Loading from "../Loading";
+import Snackbar from "@material-ui/core/Snackbar";
 
 import "./BettingPage.css";
 
@@ -33,6 +34,13 @@ class BettingPageView extends React.Component {
   };
 
   render() {
+    let fixtures;
+    if(!Array.isArray(this.props.fixtures)) fixtures = [this.props.fixtures];
+    else fixtures = this.props.fixtures;
+
+    let arrayedBets;
+    if(!Array.isArray(this.props.bets)) arrayedBets = [this.props.bets];
+    else arrayedBets = this.props.bets;
     return (
       <Card className="betting-card gradient-background-bets">
         <CardContent>
@@ -40,9 +48,10 @@ class BettingPageView extends React.Component {
           {this.props.loading ? (
             <Loading />
           ) : (
-            this.props.fixtures.map(el => {
-              let bet = this.props.bets.find(
-                bet => bet.fixture === el.fixtureID
+            fixtures.map(el => {  
+                  let bet = arrayedBets.find(bet => {
+                  return bet.fixture === el.fixtureID
+                }
               );
               let home, away;
               if (bet) {
@@ -73,6 +82,23 @@ class BettingPageView extends React.Component {
             })
           )}
         </CardContent>
+        <Snackbar
+          style={{width: "100%"}}
+          open={this.props.postSuccess}
+          onClose={this.props.closeBetSnackbar}
+          ContentProps={{
+            "aria-describedby": "message-id"
+          }}
+          message={<span id="message-id">Dodano zakład</span>}
+        />
+        <Snackbar
+          open={this.props.error}
+          onClose={this.props.closeBetSnackbar}
+          ContentProps={{
+            "aria-describedby": "message-id"
+          }}
+          message={<span id="message-id">Wystąpił błąd</span>}
+        />
       </Card>
     );
   }

@@ -8,11 +8,7 @@ export default class SignupModalView extends React.Component {
     this.state = {
       loading: false
     };
-
-    this.signupHandler = this.signupHandler.bind(this);
   }
-
-  signupHandler() {}
 
   render() {
     return (
@@ -21,13 +17,11 @@ export default class SignupModalView extends React.Component {
           <Grid item xs={1} sm={3} />
           <Grid item xs={10} sm={6}>
             <SignupCard
-              loading={this.state.loading}
-              signupHandler={() => {
-                this.signupHandler();
-              }}
-              handleChange={event => {
-                console.log(event.target);
-              }}
+              loading={this.props.loading}
+              postSignup={(body) => this.props.postSignup(body)}
+              raiseSignupError={() => this.props.raiseSignupError()}
+              closeErrorInfo={()=>this.props.closeErrorInfo()}
+              error={this.props.error}
             />
           </Grid>
         </Grid>

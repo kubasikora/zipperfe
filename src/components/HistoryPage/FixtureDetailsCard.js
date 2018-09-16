@@ -6,7 +6,6 @@ import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 
 const FixtureDetailsCard = props => {
-  console.log(props);
   return (
     <Grid container>
       <Grid item xs={12}>
@@ -18,7 +17,8 @@ const FixtureDetailsCard = props => {
               {props.homeBet?
             (<span><Typography> Twój zakład </Typography>
               <Typography> {`${props.homeBet} : ${props.awayBet}`} </Typography></span>):
-            <Typography> Nie złożono zakładu na ten mecz </Typography>
+            (<span><Typography> Brak</Typography>
+            <Typography> zakładu </Typography></span>)
               }
           </CardContent>
         </Card>

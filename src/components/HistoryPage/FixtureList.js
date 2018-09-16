@@ -22,11 +22,15 @@ class FixtureList extends React.Component {
   };
 
   render() {
-    let { fixtures, bets } = this.props;
+    let { fixtures } = this.props;
+    let bets;
+    if(!Array.isArray(this.props.bets)) bets = [this.props.bets];
+    else bets = this.props.bets;
     return (
       <div>
-        {fixtures.map(fixture => {
-          let bet = bets.find(bet => bet.fixture === fixture.fixtureID);
+        {
+          fixtures.map(fixture => {
+          let bet = bets.find(b => b.fixture === fixture.fixtureID);
           let homeBet, awayBet, homeResult, awayResult;
           homeResult = fixture.final_score.split(":")[0];
           awayResult = fixture.final_score.split(":")[1];

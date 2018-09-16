@@ -1,35 +1,52 @@
 .login-card {
-    margin-top: "10%";
+  margin-top: "10%";
 }
 
 .login-field {
-    margin-top: "8%";
+  margin-top: "8%";
 }
 
 .login-input {
-    width: "60%";
-    
+  width: "60%";
 }
 
 .password-field {
-    margin-top: "2%";
-    margin-bottom: "5%";
-    width: "60%";
+  margin-top: "2%";
+  margin-bottom: "5%";
+  width: "60%";
 }
 
 .submit-button {
-    margin-left: "30%";
-    margin-bottom: "8%";
+  margin-left: "30%";
+  margin-bottom: "8%";
 }
 
 .gradient-background-login {
-    background-color: rgb(6,17,58); /* For browsers that do not support gradients */
-    background-image: linear-gradient(to bottom right, rgb(6,17,58), rgb(13,52,255)); /* Standard syntax (must be last) */
-    height: 100%;
+  background-color: rgb(
+    6,
+    17,
+    58
+  ); /* For browsers that do not support gradients */
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(6, 17, 58),
+    rgb(13, 52, 255)
+  ); /* Standard syntax (must be last) */
+  height: 100%;
 }
 
-.login-inner-card {
-    width: 60%;
-    height: 80%; 
-    margin: 5% auto 5% auto; 
+@media screen and (min-height: 1200px) {
+  .login-inner-card {
+    width: 70%;
+    height: 85%;
+    margin: 5% auto 5% auto;
+  }
 }
+
+@media screen and (max-height: 1200px) {
+    .login-inner-card {
+      width: 90%;
+      height: 85%;
+      margin: 5% auto 5% auto;
+    }
+  }

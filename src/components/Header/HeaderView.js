@@ -13,7 +13,7 @@ class HeaderView extends React.Component {
           <Grid item xs={2}>
             <Tooltip title="Wyloguj" enterDelay={500} leaveDelay={200}>
               <h4 className="login-info logout-cursor" onClick={() => this.props.logout()}>
-                {Cookie.get("authToken") ? `Zalogowany jako ${Cookie.get("username")}` : ""}
+                {Cookie.get("authToken") ? `Wyloguj` : ""}
               </h4>
             </Tooltip>
           </Grid>

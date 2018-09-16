@@ -1,6 +1,6 @@
 import {LOGIN_FAILURE} from "../../const/actionTypes";
 
-const loginFailure = (username) => {
+const loginFailure = () => {
     return {
         type: LOGIN_FAILURE,
     }
