@@ -13,7 +13,7 @@ import {createLogger} from "redux-logger";
 const middlewares = [thunk];//, createLogger({})];
 
 const store = createStore(rootReducer, applyMiddleware(...middlewares));
-
+document.title = "Poli typer";
 ReactDOM.render(
   <Provider store={store}>
     <App />
