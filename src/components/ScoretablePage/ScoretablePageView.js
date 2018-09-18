@@ -19,7 +19,7 @@ class ScoretablePageView extends React.Component {
             {this.props.loading ? (
               <Loading />
             ) : (
-              <ResultsTable scoretable={this.props.scoretable} />
+              <ResultsTable scoretable={this.props.scoretable.sort((el1, el2) => {return el2.pts - el1.pts})} />
             )}
         </CardContent>
       </Card>
